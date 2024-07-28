@@ -1,49 +1,33 @@
 #!/usr/bin/python3
-"""
-creates a Flask web application with the specified routes
-"""
-from flask import Flask, escape
-
-
+""" Starts a Flash Web Application Python is Cool"""
+from flask import Flask
 app = Flask(__name__)
-
-
-# Route to display "Hello HBNB!"
 
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
+    """ Prints a Message when / is called """
     return 'Hello HBNB!'
-
-
-# Route to display "HBNB"
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
+    """ Prints a Message when /hbnb is called """
     return 'HBNB'
 
 
-# Route to display "C " followed by the value of the text variable
-
-
 @app.route('/c/<text>', strict_slashes=False)
-@app.route('/c/', strict_slashes=False)
-def display_c(text='is_cool'):
-    processed_text = escape(text).replace('_', ' ')
-    return f'C {processed_text}'
+def c_is_fun(text):
+    """ Prints a Message when /c is called """
+    return "C " + text.replace('_', ' ')
 
 
-# Route to display "Python " followed by the value of the text variable
-
-
+@app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-@app.route('/python/', strict_slashes=False)
-def display_python(text='is_cool'):
-    processed_text = escape(text).replace('_', ' ')
-    return f'Python {processed_text}'
+def python_is_cool(text='is_cool'):
+    """ Prints a Message when /python is called """
+    return "Python " + text.replace('_', ' ')
 
-
-if __name__ == '__main__':
-    # Run the Flask app on 0.0.0.0, port 5000
+if __name__ == "__main__":
+    """ Main Function """
     app.run(host='0.0.0.0', port=5000)
