@@ -17,6 +17,8 @@ def hello_hbnb():
     return "Hello HBNB!"
 
 # Define the route for the '/hbnb' URL, ensure strict_slashes is set to False
+
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """
@@ -25,7 +27,9 @@ def hbnb():
     """
     return "HBNB"
 
-# Define the route for the '/c/<text>' URL, ensure strict_slashes is set to False
+# Define the route for the '/c/<text>' URL
+
+
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
     """
@@ -34,6 +38,7 @@ def c_text(text):
     Underscore symbols in text are replaced with spaces.
     """
     return "C " + text.replace('_', ' ')
+
 
 # Main block to run the Flask app
 if __name__ == '__main__':
