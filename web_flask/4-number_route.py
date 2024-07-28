@@ -1,5 +1,6 @@
-#!/usr/bin/python3"""
-starts a flask web application.
+#!/usr/bin/python3
+"""
+start a flask web application.
 """
 from flask import Flask
 
@@ -19,25 +20,26 @@ def hbnb():
     return "HBNB"
 
 # Route for /c/<text>
-@app.route('/c/<path:text>', strict_slashes=False, defaults={
-  'text': 'is cool'})
-@app.route('/c/', strict_slashes=False)
-def c_route(text):
-    text = text.replace('_', ' ')
-    return f'C {text}'
+@app.route('/c/<text>', strict_slashes=False)
+def c_text(text):
+    """Display 'C ' followed by the value of the text variable,
+    with underscores replaced by spaces"""
+    return f"C {text.replace('_', ' ')}"
 
+# Route for /python/(<text>)
+@app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def python_text(text):
+    """Display 'Python ' followed by the value of the text variable,
+    with underscores replaced by spaces.
+    The default value of text is 'is cool'"""
+    return f"Python {text.replace('_', ' ')}"
 
-@app.route('/python/<path:text>', strict_slashes=False, defaults={
-  'text': 'is cool'})
-@app.route('/python/', strict_slashes=False)
-def python_route(text):
-    text = text.replace('_', ' ')
-    return f'Python {text}'
-
-
+# Route for /number/<n>
 @app.route('/number/<int:n>', strict_slashes=False)
-def number_route(n):
-    return f'{n} is a number'
+def number(n):
+    """Display 'n is a number' only if n is an integer"""
+    return f"{n} is a number"
 
 # Run the application
 if __name__ == '__main__':
