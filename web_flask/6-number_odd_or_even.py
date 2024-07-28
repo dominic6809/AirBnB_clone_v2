@@ -49,7 +49,7 @@ def number_template_route(n=None):
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def number_odd_or_even_route(n=None):
     odd_or_even = 'even' if n % 2 == 0 else 'odd'
-    return render_template('6-number_odd_or_even.html', value=n)
+    return render_template('6-number_odd_or_even.html', value=n,)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
