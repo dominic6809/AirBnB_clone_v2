@@ -8,6 +8,8 @@ from flask import Flask
 app = Flask(__name__)
 
 # Define the route for the root URL, ensure strict_slashes is set to False
+
+
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     """
@@ -15,6 +17,7 @@ def hello_hbnb():
     Returns a simple greeting message
     """
     return "Hello HBNB!"
+
 
 # Main block to run the Flask app
 if __name__ == '__main__':
