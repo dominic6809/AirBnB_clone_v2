@@ -8,18 +8,24 @@ from flask import Flask
 app = Flask(__name__)
 
 # Route for the root URL
+
+
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     """Display 'Hello HBNB!'"""
     return "Hello HBNB!"
 
 # Route for /hbnb
+
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """Display 'HBNB'"""
     return "HBNB"
 
 # Route for /c/<text>
+
+
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
     """Display 'C ' followed by the value of the text variable,
@@ -27,6 +33,8 @@ def c_text(text):
     return f"C {text.replace('_', ' ')}"
 
 # Route for /python/(<text>)
+
+
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python_text(text):
@@ -36,10 +44,13 @@ def python_text(text):
     return f"Python {text.replace('_', ' ')}"
 
 # Route for /number/<n>
+
+
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
     """Display 'n is a number' only if n is an integer"""
     return f"{n} is a number"
+
 
 # Run the application
 if __name__ == '__main__':
