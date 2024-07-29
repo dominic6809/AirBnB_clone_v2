@@ -7,7 +7,6 @@ from models.review import Review
 from models.city import City
 from models.amenity import Amenity
 from models.base_model import BaseModel
-import shlex
 from models.state import State
 import json
 
@@ -19,9 +18,8 @@ class FileStorage:
         __file_path: path to the JSON file
         __objects: objects will be stored
     """
-
-    __file_path = "file.json" # path to the JSON file
-    __objects = {}  # Dictionary to store objects
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self, cls=None):
         """
