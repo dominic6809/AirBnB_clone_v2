@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define DBStorage engine. module"""
+"""Define DBStorage engine module"""
 
 from models.base_model import Base
 from os import getenv
